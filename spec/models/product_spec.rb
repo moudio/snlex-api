@@ -6,5 +6,6 @@ let!(:product) {create(:product)}
       expect(product).to be_valid
     end
 
+
   end
 end
