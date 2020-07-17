@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_secure_password
   validates :username, presence: true, uniqueness: {case_sensitive: false},  length: {in: 4..10}
   validates :email, presence: true, uniqueness: {case_sensitive: false}, format: {with: VALID_EMAIL_REGEX}
+  has_many :products, through: :cart
 end
