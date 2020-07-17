@@ -6,6 +6,12 @@ class UsersController < ApplicationController
         status: 'created',
         user: @user
       }
+     else
+        render json: {
+          status: 500,
+          errors: @user.errors.full_messages
+        }
+
     end
   end
 
