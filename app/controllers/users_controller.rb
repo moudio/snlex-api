@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       render json: {
-        status: 'created',
+        status:'created',
         user: @user
       }
      else
