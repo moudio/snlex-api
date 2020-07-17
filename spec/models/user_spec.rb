@@ -40,6 +40,10 @@ RSpec.describe User, type: :model do
       expect(second_user).not_to be_valid
   end
 
+it 'ensures the email is valid' do
+  user.email = 'randomstring'
+  expect(user).not_to be_valid
+end
   it 'ensures the email is not case sensitive' do
     user.save
     second_user.email = user.email.upcase
