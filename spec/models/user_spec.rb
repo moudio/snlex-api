@@ -22,6 +22,11 @@ RSpec.describe User, type: :model do
       expect(second_user).not_to be_valid
   end
 
+  it 'ensures the email is unique' do
+      user.save
+      second_user.email = user.email
+      expect(second_user).not_to be_valid
+  end
 
 
   end
