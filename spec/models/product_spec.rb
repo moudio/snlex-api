@@ -1,5 +1,10 @@
 require 'rails_helper'
-
 RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+let!(:product) {create(:product)}
+  context "Validating the Product" do
+    it "tests the product has name" do
+      expect(product).to be_valid
+    end
+
+  end
 end

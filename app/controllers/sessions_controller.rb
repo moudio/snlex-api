@@ -22,11 +22,6 @@ class SessionsController < ApplicationController
           status: 'logged out'
         }
 
-      else
-        render json: {
-          status: 401,
-          message: ["Couldn't find user"]
-        }
       end
     end
 
