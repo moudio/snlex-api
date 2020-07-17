@@ -15,6 +15,23 @@ class SessionsController < ApplicationController
         end
     end
 
+    def destroy
+      @user = User.find(params[:id])
+      if @user
+        render json: {
+          status: 'logged out'
+        }
+
+      else
+        render json: {
+          status: 401,
+          message: ["Couldn't find user"]
+        }
+      end
+    end
+
+
+
     private
     def sessions_params
       params.require(:user).permit(:username, :password)

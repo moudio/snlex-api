@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Sessions", type: :request do
-
 let!(:user) {create(:user)}
+
   context "Session validation" do
   it "creates a new session successfully" do
     post '/api/sessions', params: {user: {username: user.username, password: user.password}}
@@ -13,5 +13,12 @@ let!(:user) {create(:user)}
     expect(JSON(response.body)['status']).to eq(401)
     expect(JSON(response.body)['errors'].first).to match('Verify credentials and try again or signup')
   end
+
+  it "logs out successfully" do
+    delete "/api/sessions/#{user.id}"
+    expect(JSON(response.body)['status']).to eq('logged out')
+  end
+
 end
+
 end
