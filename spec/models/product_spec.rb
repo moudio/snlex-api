@@ -18,6 +18,9 @@ let!(:product) {create(:product)}
       expect(product).not_to be_valid
     end
 
+    it "ensures a product has many users" do
+      should respond_to(:users)
+    end
 
   end
 end
