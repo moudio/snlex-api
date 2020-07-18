@@ -1,5 +1,20 @@
 class ProductsController < ApplicationController
-  # before_action :find_product,
+   before_action :find_product, only: [:show]
+
+  def create
+      @product = Product.new(product_params)
+      if(@product.save)
+          render json: {
+            status: 'created',
+            product: @product
+          }
+      else
+        render json: {
+          status: 500,
+          erros: @product.errors.full_messages
+        }
+      end
+  end
 
   def index
     @products =  Product.all
@@ -16,10 +31,11 @@ class ProductsController < ApplicationController
 end
 
 def show
-  @product = Product.find(params[:id])
     render json: {
       product: @product
     }
+
+
 
 end
 
@@ -30,5 +46,8 @@ def find_product
   @product = Product.find(params[:id])
 end
 
+def product_params
+  params.require(:product).permit(:name, :description, :category, :price, :picture)
+end
 
 end
