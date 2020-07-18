@@ -5,7 +5,7 @@ RSpec.describe "Products", type: :request do
   context "Testing Products CRUD" do
 
     it "test if the user can create a product" do
-       post '/api/products', params: {product: {name: 'Adidas', description: 'Stan Smith', price: 200}}
+       post '/api/products', params: {product: {name: 'Adidas', description: 'Stan Smith', category: 'shoes', price: 200}}
        expect(JSON(response.body)['status']).to eq('created')
     end
     it "tests if the user can list all products" do
