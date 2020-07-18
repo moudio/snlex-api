@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  # before_action :find_product,
 
   def index
     @products =  Product.all
@@ -12,5 +13,22 @@ class ProductsController < ApplicationController
     }
 
   end
-end 
+end
+
+def show
+  @product = Product.find(params[:id])
+    render json: {
+      product: @product
+    }
+
+end
+
+
+private
+
+def find_product
+  @product = Product.find(params[:id])
+end
+
+
 end

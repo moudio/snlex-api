@@ -7,5 +7,10 @@ RSpec.describe "Products", type: :request do
       get '/api/products/'
       expect(JSON(response.body)['products'].length).to eq(20)
     end
+
+    it "test if the user returs one product" do
+      get '/api/products/1'
+       expect(JSON(response.body)['product']['id']).to eq(1)
+    end
   end
 end
