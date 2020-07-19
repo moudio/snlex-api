@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(username: sessions_params[:username])
         if @user&& @user.authenticate(sessions_params[:password])
+          session[:user_id] = @user[:id]
           render json: {
             status: "created",
             user: @user
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
 
     def destroy
       @user = User.find(params[:id])
+      session[:user_id] = nil
       if @user
         render json: {
           status: 'logged out'

@@ -8,6 +8,7 @@ RSpec.describe "Products", type: :request do
        post '/api/products', params: {product: {name: 'Adidas', description: 'Stan Smith', category: 'shoes', price: 200}}
        expect(JSON(response.body)['status']).to eq('created')
     end
+
     it "tests if the user can list all products" do
       get '/api/products/'
       expect(JSON(response.body)['products'].length).to eq(20)
@@ -18,5 +19,11 @@ RSpec.describe "Products", type: :request do
        expect(JSON(response.body)['product']['id']).to eq(1)
     end
 
+
+    it "tests one product can be removed" do
+      delete '/api/products/1'
+      expect(JSON(response.body)['status']).to eq('deleted')
+
+end
   end
 end

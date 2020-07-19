@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-   before_action :find_product, only: [:show]
+   before_action :find_product, only: [:show, :destroy]
 
   def create
       @product = Product.new(product_params)
@@ -34,11 +34,15 @@ def show
     render json: {
       product: @product
     }
-
-
-
 end
 
+def destroy
+    if(@product.destroy)
+      render json: {
+        status: :deleted
+      }
+    end
+end
 
 private
 

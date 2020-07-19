@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :price, presence: true
   has_many :users, through: :cart, dependent: :destroy
+  has_many :users, through: :purchased, dependent: :destroy
 end
