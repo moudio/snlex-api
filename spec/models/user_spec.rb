@@ -59,5 +59,6 @@ end
     should respond_to(:products)
   end
 
+
   end
 end
