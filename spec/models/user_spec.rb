@@ -55,10 +55,13 @@ end
     expect(user).not_to be_valid
   end
 
-  it 'ensures the user has many products' do
-    should respond_to(:products)
+  it 'ensures the user has many purchased products' do
+    should respond_to(:purchased_products)
   end
 
+  it 'ensures the user has many products on cart ' do
+      should respond_to(:cart_products)
+  end
 
   end
 end

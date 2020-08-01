@@ -2,7 +2,8 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
 let!(:product) {create(:product)}
 let!(:user) {create(:user)}
-let!(:cart) {create(:cart)}
+let!(:purchased) {create(:purchased)}
+let!(:cart_product) {create(:cart)}
   context "Validating the Product" do
     it "tests the product has name" do
       product.name = ''
@@ -25,6 +26,6 @@ let!(:cart) {create(:cart)}
       expect(product).not_to be_valid
     end
 
-
   end
+
 end
