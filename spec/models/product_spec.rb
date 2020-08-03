@@ -26,6 +26,10 @@ let!(:cart_product) {create(:cart)}
       expect(product).not_to be_valid
     end
 
+    it "tests the product has a picture" do
+      product.picture.attach(io: File.open(fixture_path + '/couple.jpg'), filename: "attachment.jpg", content_type: "image/jpg")
+      expect(product.picture).to be_attached
+    end
   end
 
 end

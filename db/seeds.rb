@@ -5,4 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Product.create(name: 'Product 1', description: "Description for product 1", category: 'shoes', price: 800)
+product = Product.create(name: 'Product 1', description: "Description for product 1", category: 'shoes', price: 800)
+p product
+product.picture.attach(io: File.open("./couple.jpg"), filename: "couple.jpg", content_type: "image/jpg")
