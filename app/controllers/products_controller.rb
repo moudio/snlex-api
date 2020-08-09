@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
 
   def index
     @products =  Product.all
-    end
+  
     if @products
     render json: {
       status: 200,

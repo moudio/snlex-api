@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
 let!(:product) {create(:product)}
 let!(:user) {create(:user)}
-let!(:purchased) {create(:purchased)}
+let!(:purchase) {create(:purchase)}
 let!(:cart_product) {create(:cart)}
   context "Validating the Product" do
     it "tests the product has name" do
