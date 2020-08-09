@@ -56,7 +56,7 @@ end
   end
 
   it 'ensures the user has many purchased products' do
-    should respond_to(:purchased_products)
+    should respond_to(:purchases)
   end
 
   it 'ensures the user has many products on cart ' do
