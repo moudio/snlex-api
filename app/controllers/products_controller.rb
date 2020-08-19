@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-   before_action :find_product, only: [:destroy]
+   before_action :find_product, only: [:update, :destroy]
 
   def create
       @product = Product.new(product_params)
@@ -26,6 +26,15 @@ class ProductsController < ApplicationController
   def show
     render json: Product.find(params[:id])
   end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update_attributes(product_params)
+      render json: {
+        status: :updated
+      }
+    end
+  end 
 
 def destroy
     if(@product.destroy)
