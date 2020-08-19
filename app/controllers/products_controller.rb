@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-   before_action :find_product, only: [:show, :destroy]
+   before_action :find_product, only: [:destroy]
 
   def create
       @product = Product.new(product_params)
@@ -17,16 +17,15 @@ class ProductsController < ApplicationController
   end
 
   def index
-    
+
     render json: Product.all
+    
 
   end
 
-def show
-    render json: {
-      product: @product
-    }
-end
+  def show
+    render json: Product.find(params[:id])
+  end
 
 def destroy
     if(@product.destroy)

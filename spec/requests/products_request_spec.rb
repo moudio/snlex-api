@@ -12,12 +12,12 @@ RSpec.describe "Products", type: :request do
     it "tests if the user can list all products" do
       get '/api/products/'
 
-      expect(JSON(response.body)['products']).to (20)
+      expect(JSON(response.body).length).to eq(20)
     end
 
     it "tests if the app returns one product" do
       get '/api/products/1'
-       expect(JSON(response.body)['product']['id']).to eq(1)
+       expect(JSON(response.body)['id']).to eq(1)
     end
 
 
@@ -26,5 +26,10 @@ RSpec.describe "Products", type: :request do
       expect(JSON(response.body)['status']).to eq('deleted')
 
 end
+
+it "tests the api returns products with pictures" do 
+  get '/api/products/1'
+  expect(JSON(response.body)["picture"]['url']).to match('http://localhost')  
+end 
   end
 end
