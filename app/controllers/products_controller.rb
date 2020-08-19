@@ -17,20 +17,10 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products =  Product.all
-  
-    if @products
-    render json: {
-      status: 200,
-      products: @products
-    }
-  else
-    render json: {
-      message: "You don't have the rights for this request"
-    }
+    
+    render json: Product.all
 
   end
-end
 
 def show
     render json: {

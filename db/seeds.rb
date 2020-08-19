@@ -4,6 +4,10 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+
 #   Character.create(name: 'Luke', movie: movies.first)
 product = Product.create(name: 'Product 1', description: "Description for product 1", category: 'shoes', price: 800)
 product.picture.attach(io: File.open("#{Rails.root}/app/pictures/test_picture.jpg"), filename: "couple.jpg", content_type: "image/jpg")
+Cat.create({name: "Spot", age: 11, favorite_food: "salmon"})
+
+User.create({username: "mouhamadou", email:"phil@gmal.com", password: "password"})

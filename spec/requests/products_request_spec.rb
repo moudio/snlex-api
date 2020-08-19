@@ -11,7 +11,8 @@ RSpec.describe "Products", type: :request do
 
     it "tests if the user can list all products" do
       get '/api/products/'
-      expect(JSON(response.body)['products'].length).to eq(20)
+
+      expect(JSON(response.body)['products']).to (20)
     end
 
     it "tests if the app returns one product" do
