@@ -19,9 +19,9 @@ class ProductsController < ApplicationController
   def index
 
     render json: Product.all
-    
 
   end
+
 
   def show
     render json: Product.find(params[:id])
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
         status: :updated
       }
     end
-  end 
+  end
 
 def destroy
     if(@product.destroy)
@@ -42,6 +42,11 @@ def destroy
         status: :deleted
       }
     end
+end
+
+
+def trendings
+  render json: Product.trendings
 end
 
 private

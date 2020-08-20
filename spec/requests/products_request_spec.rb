@@ -9,7 +9,7 @@ RSpec.describe "Products", type: :request do
        expect(JSON(response.body)['status']).to eq('created')
     end
 
-    it "test the products can be updated" do 
+    it "test the products can be updated" do
        patch '/api/products/1', params: {product: {name: 'Adidas', description: 'Stan Smith', category: 'shoes', price: 200}}
       expect(JSON(response.body)['status']).to eq('updated')
 end
@@ -32,10 +32,15 @@ end
 
 end
 
-it "tests the api returns products with pictures" do 
-  get '/api/products/1'
-  expect(JSON(response.body)["picture"]['url']).to match('http://localhost')  
-end 
+it "sends trending products" do
+  get '/api/trendings'
+  expect(JSON(response.body).length).to eq(3)
+end
 
-end 
+it "tests the api returns products with pictures" do
+  get '/api/products/1'
+  expect(JSON(response.body)["picture"]['url']).to match('http://localhost')
+end
+
+end
 end

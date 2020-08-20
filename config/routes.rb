@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create, :destroy]
       resources :products
       resources :cats, only: [:index, :show]
+      get 'trendings', to: "products#trendings"
     end
 
-    get 'trendings', to: "products#trending"
 end
