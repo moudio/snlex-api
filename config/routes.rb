@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  Rails.application.routes.default_url_options[:host] = "localhost:3000"
+  Rails.application.routes.default_url_options[:host] = "localhost:3001"
 
   scope :api do
       resources :users
@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       resources :products
       resources :cats, only: [:index, :show]
     end
+
+    get 'trendings', to: "products#trending"
 end
