@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Products", type: :request do
   let!(:products) {create_list(:product, 20)}
+
   context "Testing Products CRUD" do
 
     it "test if the user can create a product" do
@@ -34,7 +35,7 @@ end
 
 it "sends trending products" do
   get '/api/trendings'
-  expect(JSON(response.body).length).to eq(3)
+  expect(JSON(response.body).length).to eq(20)
 end
 
 it "tests the api returns products with pictures" do
