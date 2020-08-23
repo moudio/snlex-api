@@ -40,15 +40,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_121015) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "cats", force: :cascade do |t|
-    t.string "name"
-    t.string "favorite_food"
-    t.integer "age"
-    t.integer "person_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"

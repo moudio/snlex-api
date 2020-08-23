@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 
   scope :api do
       resources :users
-      resources :sessions, only: [:create, :destroy]
       resources :products
       resources :cats, only: [:index, :show]
       get 'trendings', to: "products#trendings"
+      post "login", to: "sessions#login"
+      delete "logout", to: "sessions#logout"
     end
 
 end
