@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     def logout
       session[:user_id] = nil
         render json: {
-          status: 'logged out'
+          status: 'logged_out'
         }
         end
 

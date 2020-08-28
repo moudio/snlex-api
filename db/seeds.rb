@@ -15,10 +15,20 @@ stan_smith.picture.attach(io: File.open("#{Rails.root}/app/pictures/stan_smith.j
 stan_smith = Product.create(name: 'Adidas Stan Smith', description: "Adidas Stan Smith", category: 'shoes', price: 800)
 stan_smith.picture.attach(io: File.open("#{Rails.root}/app/pictures/stan_smith.jpg"), filename: "stan_smith", content_type: "image/jpg")
 
+stan_smith = Product.create(name: 'Adidas Stan Smith', description: "Adidas Stan Smith", category: 'shoes', price: 800)
+stan_smith.picture.attach(io: File.open("#{Rails.root}/app/pictures/stan_smith.jpg"), filename: "stan_smith", content_type: "image/jpg")
+
+stan_smith = Product.create(name: 'Adidas Stan Smith', description: "Adidas Stan Smith", category: 'shoes', price: 800)
+stan_smith.picture.attach(io: File.open("#{Rails.root}/app/pictures/stan_smith.jpg"), filename: "stan_smith", content_type: "image/jpg")
+
+stan_smith = Product.create(name: 'Adidas Stan Smith', description: "Adidas Stan Smith", category: 'shoes', price: 800)
+stan_smith.picture.attach(io: File.open("#{Rails.root}/app/pictures/stan_smith.jpg"), filename: "stan_smith", content_type: "image/jpg")
+
 
 product = Product.create(name: 'Converse All Star', description: "Converse All Star", category: 'shoes', price: 600)
 product.picture.attach(io: File.open("#{Rails.root}/app/pictures/converse.jpeg"), filename: "stan_smith", content_type: "image/jpeg")
 
-
+product = Product.create(name: 'Red T shirt', description: "Red Cotton T shirt ", category: 't-shirt', price: 60)
+product.picture.attach(io: File.open("#{Rails.root}/app/pictures/red_t_shirt.png"), filename: "red_t_shirt", content_type: "image/png")
 
 User.create({username: "mouhamadou", email:"phil@gmal.com", password: "password"})
