@@ -6,9 +6,11 @@ Rails.application.routes.draw do
       resources :users
       resources :products
       resources :cats, only: [:index, :show]
+      resources :carts
       get 'trendings', to: "products#trendings"
       post "login", to: "sessions#login"
       delete "logout", to: "sessions#logout"
+
     end
 
 end
