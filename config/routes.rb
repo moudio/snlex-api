@@ -7,9 +7,11 @@ Rails.application.routes.draw do
       resources :products
       resources :cats, only: [:index, :show]
       resources :carts
+      get 'categories/:category', to: 'products#fetch_category'
       get 'trendings', to: "products#trendings"
       post "login", to: "sessions#login"
       delete "logout", to: "sessions#logout"
+
 
     end
 
