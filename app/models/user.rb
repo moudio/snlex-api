@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_many :carts
   has_many :products, through: :cart
 
- # has_many :cart_products, through: :cart, source: :products
 end

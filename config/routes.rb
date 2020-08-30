@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   scope :api do
       resources :users
       resources :products
-      resources :cats, only: [:index, :show]
-      resources :cart
+      resources :carts
       get 'categories/:category', to: 'products#fetch_category'
       get 'trendings', to: "products#trendings"
       post "login", to: "sessions#login"
