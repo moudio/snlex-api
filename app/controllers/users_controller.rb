@@ -21,12 +21,23 @@ class UsersController < ApplicationController
         }
 
     end
-    def user_products
-      @user_products = User.find(params[:id]).products
-    end
   end
 
+    def fetch_user_products
+      @user_products = User.find(params[:id]).products
+      if @user_products
+        render json: {
+          status: 'proucts fetched',
+          products: @user_products
+        }
+      else
+        render json: {
+          status: 500,
+          errors: @user_products.errors.full_messages
+        }
+    end
 
+  end
 
   private
   def user_params

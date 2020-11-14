@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :products
       resources :carts
       get 'categories/:category', to: 'products#fetch_category'
-      get '/users/:user_id/products', to 'users#fetch_products'
+      get 'users/:id/products', to: 'users#fetch_user_products'
       get 'trendings', to: "products#trendings"
       post "login", to: "sessions#login"
       delete "logout", to: "sessions#logout"
