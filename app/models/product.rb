@@ -5,5 +5,5 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :category, presence: true
   validates :price, presence: true
-  has_many :users, dependent: :destroy
+  belongs_to :user, dependent: :destroy
 end

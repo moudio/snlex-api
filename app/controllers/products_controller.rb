@@ -62,7 +62,7 @@ def find_product
 end
 
 def product_params
-  params.permit(:name, :description, :category, :price, :picture)
+  params.permit(:name, :description, :category, :price, :user_id, :picture)
 end
 
 end
