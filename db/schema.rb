@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_121015) do
+ActiveRecord::Schema.define(version: 2020_08_30_122351) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2020_08_20_121015) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "cards_shopping_carts", force: :cascade do |t|
+    t.integer "card_id", null: false
+    t.integer "shopping_cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_cards_shopping_carts_on_card_id"
+    t.index ["shopping_cart_id"], name: "index_cards_shopping_carts_on_shopping_cart_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -57,6 +66,11 @@ ActiveRecord::Schema.define(version: 2020_08_20_121015) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shopping_carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -66,4 +80,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_121015) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cards_shopping_carts", "cards"
+  add_foreign_key "cards_shopping_carts", "shopping_carts"
 end

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     render json: {
-        users: @users 
+        users: @users
     }
   end
 
@@ -20,6 +20,9 @@ class UsersController < ApplicationController
           errors: @user.errors.full_messages
         }
 
+    end
+    def user_products
+      @user_products = User.find(params[:id]).products
     end
   end
 

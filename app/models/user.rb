@@ -3,8 +3,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :username, presence: true, uniqueness: {case_sensitive: false},  length: {in: 4..10}
   validates :email, presence: true, uniqueness: {case_sensitive: false}, format: {with: VALID_EMAIL_REGEX}
-  has_many :purchases, through: :purchase
-  has_many :carts
-  has_many :products, through: :cart
+  has_many :products,
 
 end

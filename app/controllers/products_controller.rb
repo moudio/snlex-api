@@ -1,6 +1,13 @@
 class ProductsController < ApplicationController
    before_action :find_product, only: [:update, :destroy]
 
+
+     def index
+
+       render json: Product.all
+
+     end
+
   def create
       @product = Product.new(product_params)
       if(@product.save)
@@ -16,11 +23,6 @@ class ProductsController < ApplicationController
       end
   end
 
-  def index
-
-    render json: Product.all
-
-  end
 
 
   def show
@@ -60,7 +62,7 @@ def find_product
 end
 
 def product_params
-  params.require(:product).permit(:name, :description, :category, :price, :picture)
+  params.permit(:name, :description, :category, :price, :picture)
 end
 
 end

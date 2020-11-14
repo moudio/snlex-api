@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.5.1'
 gem 'aws-sdk', '~> 3'
 
 gem 'active_model_serializers'
