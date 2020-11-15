@@ -8,7 +8,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Product.delete_all
  User.delete_all
-user = User.create({username: "mouha", email:"mouha@gmal.com", password: "password"})
+user = User.create({username: "mouha", email:"mouha@gmal.com", password: "password", telephone: "77 845 23 24", admin: true})
 
 stan_smith = Product.create(name: 'Adidas Stan Smith', description: "Adidas Stan Smith", category: 'shoes', price: 800, user_id: user.id )
 stan_smith.picture.attach(io: File.open("#{Rails.root}/app/pictures/stan_smith.jpg"), filename: "stan_smith", content_type: "image/jpg")

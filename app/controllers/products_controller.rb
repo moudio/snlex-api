@@ -52,8 +52,9 @@ def trendings
 end
 
 def fetch_category
-  render json: Product.find_by(category: params[:category])
+  render json: Product.where(category: params[:category])
 end
+
 
 private
 
